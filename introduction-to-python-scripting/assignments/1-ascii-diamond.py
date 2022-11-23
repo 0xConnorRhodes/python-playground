@@ -8,3 +8,10 @@ for i in range(length):
         print("-", end='')
     print(astr)
     astr = astr + "**"
+
+length -= 1
+astrNum = len(astr) - 4
+
+for i in range(length):
+    print("*" * astrNum)
+    astrNum -= 2
