@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 
-count = 5
 
+for num in range(0,5):
+    print("*" * num)
+
+count = 5
 while (count > 0):
     print("*" * count)
     count -=1
