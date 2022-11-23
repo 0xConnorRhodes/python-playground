@@ -11,8 +11,10 @@ for i in range(length):
 
 length -= 1
 astrNum = len(astr) - 4
+space = 2
 
 for i in range(length):
-    print("-", end='')
+    print("-" * space, end='')
     print("*" * astrNum)
     astrNum -= 2
+    space += 1
