@@ -36,4 +36,4 @@ def sum_points(todo1, todo2):
     >>> sum_points(todos[0], todos[1])
     5
     """
-    return
+    return int(todo1['points']) + int(todo2['points'])
