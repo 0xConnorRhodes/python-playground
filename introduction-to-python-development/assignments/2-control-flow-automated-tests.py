@@ -34,7 +34,7 @@ def take_first(todos):
         todo = todos.pop(0)
         return (todo, todos)
 
-def sum_points(todo1, todo2):
+def sum_points(todos):
     """
     sum_points receives two todo dictionaries and returns sum of their `point` values.
 
@@ -44,5 +44,10 @@ def sum_points(todo1, todo2):
     >>> sum_points(todos)
     10
     """
-    return int(todo1['points']) + int(todo2['points'])
+    total = 0
+
+    for num in range(0, len(todos)):
+        total = total + int(todos[num]['points'])
+
+    return total
 
