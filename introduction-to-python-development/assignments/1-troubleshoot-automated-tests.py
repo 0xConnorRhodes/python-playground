@@ -25,7 +25,8 @@ def take_first(todos):
     >>> todos
     [{'name': 'Task 2', 'body': 'Yet another example task', 'points': '2'}]
     """
-    return
+    first_item = todos.pop(0)
+    return (first_item, todos)
 
 def sum_points(todo1, todo2):
     """
