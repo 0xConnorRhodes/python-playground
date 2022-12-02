@@ -15,7 +15,7 @@ def print_todo(todo):
 def take_first(todos):
     """
     take_first receives a list of todos and removes the first todo
-    and returns that todo and the remaining todos in a touple
+    and returns that todo and the remaining todos in a tuple
 
     >>> todos = [{'name': 'Example 1', 'body': 'This is a test task', 'points': '3'},
     ... {'name': 'Task 2', 'body': 'Yet another example task', 'points': '2'}]
@@ -28,8 +28,11 @@ def take_first(todos):
     >>> take_first(todos)
     (None, [])
     """
-    todo = todos.pop(0)
-    return (todo, todos)
+    if len(todos) <= 1:
+        return (None, todos)
+    else:
+        todo = todos.pop(0)
+        return (todo, todos)
 
 def sum_points(todo1, todo2):
     """
