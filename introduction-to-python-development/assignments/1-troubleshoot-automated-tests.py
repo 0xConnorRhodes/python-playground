@@ -9,7 +9,7 @@ def print_todo(todo):
     Example 1: This is a test task
     >>>
     """
-    pass
+    print(todo['name'] + ": " + todo['body'])
 
 def take_first(todos):
     """
