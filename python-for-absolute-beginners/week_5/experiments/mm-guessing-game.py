@@ -8,6 +8,22 @@ import random
 3. tell the user if their guess is too low or 2 high
 4. if the user guesses correctly, exit immediately and tell them the number of guesses it took them to guess correctly
 """
+
 num = random.randint(1, 101)
 
-print(num)
+count = 0
+
+while count < 5:
+    count += 1
+
+    guess = int(input("Pick a number between 1 and 100: "))
+
+    if guess < num:
+        print("That number is too low.")
+    elif guess > num:
+        print("That number is too high.")
+    else:
+        print("That's correct!")
+        break
+
+print(f"Bye. You finished in {count} attempts.")
