@@ -8,3 +8,10 @@ current_year = current_day.year
 age = current_year - birth_year
 
 print(f"This year you will turn {age}.")
+
+if age < 15:
+    print("You are young.")
+elif age < 30:
+    print("Your age is just right.")
+else:
+    print("You are old.")
