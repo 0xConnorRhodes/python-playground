@@ -6,9 +6,13 @@
 
 name = input("Enter your name: ")
 
-index = int(
-    input("*Print nth character* Enter n: ")
-    # subtract 1 to fix with python's indexing from 0
-) - 1
+index = int(input("*Print nth character* Enter n: "))
 
-print(name[index])
+if index > len(name):
+    print("Sorry. That index is too high.")
+    exit(1)
+elif index <= 0:
+    print("Sorry. That index is too low.")
+    exit(1)
+else:
+    print(name[index-1])
