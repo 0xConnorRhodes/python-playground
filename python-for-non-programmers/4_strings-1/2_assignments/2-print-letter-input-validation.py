@@ -4,11 +4,11 @@
 # or a positive number that’s too high, then scold them.
 # Otherwise, print the letter at that index.
 
-vowels = ['a', 'e', 'i', 'o', 'u']
+name = input("Enter your name: ")
 
-name = input("Please enter a name: ")
+index = int(
+    input("*Print nth character* Enter n: ")
+    # subtract 1 to fix with python's indexing from 0
+) - 1
 
-if name[-1] in vowels:
-    print("That name ends with a vowel.")
-else:
-    print("That name does not end with a vowel.")
+print(name[index])
