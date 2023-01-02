@@ -9,6 +9,7 @@ Right now, I am focusing on A Cloud Guru's [Introduction to Python Scripting](ht
 
 - [x] [Python Foundations](https://connor.engineer/blog/python-foundations-course/) - *Zenva* - Brief overview of the components of the language
 - [x] [Introduction to Python Scripting](https://acloudguru.com/course/introduction-to-python-scripting) - *A Cloud Guru* - Jump right into basic scripting
+- [ ] [Python for non-programmers](https://store.lerner.co.il/python-for-non-programmers-live) - *Reuven Lerner* - Introduction to Python fundamentals
 - [ ] [Python for Absolute Beginners](https://training.talkpython.fm/courses/explore_beginners/python-for-absolute-beginners) - *TalkPython* - In-depth overview of computer science background knowledge that a lot of beginners miss
 - [ ] [Certified Entry-Level Python Programmer](https://acloudguru.com/course/certified-entry-level-python-programmer-certification) - *A Cloud Guru* - In-depth coverage of the theoretical foundations of programming in Python.
 - [ ] [Introduction to Python Development](https://acloudguru.com/course/introduction-to-python-development) - *A Cloud Guru* - Introduction to Python developer workflow and some starting projects
