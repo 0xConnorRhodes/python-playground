@@ -3,6 +3,9 @@
 
 word = input("Please enter a word: ")
 
-pl_word = word[1::] + word[0] + 'ay'
+if word[0] in 'aeiou':
+    pl_word = word + 'way'
+else:
+    pl_word = word[1::] + word[0] + 'ay'
 
 print(pl_word)
