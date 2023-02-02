@@ -15,7 +15,11 @@ class Todo:
     Get Lunch (Complete - 0 points): Need to eat.
     >>> todo2 = Todo(name='Test', description='Another todo', points=1, completed=True)
     """
-    pass
+    def __init__(self, name=name, description=description, points=points, completed=False):
+        self.name = name
+        self.description = description
+        self.points = points
+        self.completed = completed
 
 class TodoList:
     """
