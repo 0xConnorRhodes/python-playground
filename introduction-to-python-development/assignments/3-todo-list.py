@@ -59,4 +59,9 @@ class TodoList:
                 tasks.append(todo)
         return tasks
 
-
+    def incomplete(self):
+        tasks = []
+        for todo in self.todos:
+            if not todo.completed:
+                tasks.append(todo)
+        return tasks
