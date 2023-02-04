@@ -42,4 +42,24 @@ class TodoList:
     >>> todo_list.incomplete()
     [Submit Talk Proposal (Incomplete - 3 points): Write and submit talk for PyCon]
     """
-    pass
+    
+    def __init__(self, todos):
+        self.todos = todos
+
+    def average_points(self):
+        total = 0
+        for todo in self.todos:
+            total += todo.points
+        return total / len(self.todos)
+
+
+
+
+
+
+
+
+
+
+
+
