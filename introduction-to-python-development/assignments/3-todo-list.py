@@ -52,14 +52,11 @@ class TodoList:
             total += todo.points
         return total / len(self.todos)
 
-
-
-
-
-
-
-
-
-
+    def completed(self):
+        tasks = []
+        for todo in self.todos:
+            if todo.completed:
+                tasks.append(todo)
+        return tasks
 
 
