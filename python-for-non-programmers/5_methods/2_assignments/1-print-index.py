@@ -31,3 +31,14 @@ elif letter not in string:
 elif letter in string:
     index = string.index(letter)
     print(f"Letter {letter} is in string {string} at index {index}.")
+
+    if len(string) == 1:
+        print(f"{letter} is the only letter in the string.")
+    elif index == 0:
+        print(f"{letter} is the first letter in the string")
+        print(f"The letter after {letter} is {string[index+1]}")
+    elif index == (len(string) - 1):
+        print(f"{letter} is the last letter in the string")
+    else:
+        print(f"The letter before {letter} is {string[index-1]}")
+        print(f"The letter after {letter} is {string[index+1]}")
