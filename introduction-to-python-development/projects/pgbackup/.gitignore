@@ -1,3 +1,6 @@
+local-backup.sh
+s3-backup.sh
+src/pgbackup/core
 Pipfile.lock
 # Byte-compiled / optimized / DLL files
 __pycache__/
