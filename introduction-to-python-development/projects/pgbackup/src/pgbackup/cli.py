@@ -12,9 +12,10 @@ def create_parser():
     """)
 
     parser.add_argument("url", help="URL of the database to back up")
-    parser.add_argument("--driver", 
+    parser.add_argument("--driver", '-d',
                         help="specify storage method and location",
                         nargs=2,
+                        metavar=("DRIVER", "DESTINATION"),
                         action=DriverAction,
                         required=True)
 
