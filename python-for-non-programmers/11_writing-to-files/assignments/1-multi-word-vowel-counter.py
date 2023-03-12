@@ -1,16 +1,17 @@
 vowel_counts = {}
 while True:
-    word = input("Enter a word: ").strip()
+    sentence = input("Enter a sentence: ").strip()
+    if sentence == '':break
 
-    if word == '': 
-        break
+    words = sentence.split()
 
-    vowels = 0
-    for one_letter in word:
-        if one_letter.lower() in 'aeiou':
-            vowels += 1
+    for one_word in words:
+        vowels = 0
+        for one_letter in one_word:
+            if one_letter.lower() in 'aeiou':
+                vowels += 1
 
-    vowel_counts[word] = vowels
+        vowel_counts[one_word] = vowels
 
 for word, count in vowel_counts.items():
     print(f'{word}: {count}')
