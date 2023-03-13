@@ -1,4 +1,8 @@
 def factor(dictionary, factor=2):
+    new_dict = {}
+
     for key, value in dictionary.items():
-        dictionary[key] = value * factor
+        new_dict[key] = value * factor
+
+    return new_dict
 
