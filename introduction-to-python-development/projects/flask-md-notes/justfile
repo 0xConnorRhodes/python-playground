@@ -1,0 +1,6 @@
+set export
+FLASK_DEBUG := 'True'
+FLASK_APP := '.'
+
+test:
+	flask run --host=127.0.0.1 --port=3000
