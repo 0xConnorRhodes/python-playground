@@ -42,4 +42,3 @@ def main():
         print(f"Backing up database to locally to {outfile.name}")
         storage.local(dump.stdout, outfile)
 
-
