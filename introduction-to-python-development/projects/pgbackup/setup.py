@@ -10,7 +10,7 @@ setup(
     author_email='connor@rhodes.contact',
     description='A utility for backing up PostgreSQL databases.',
     long_description=long_description,
-    long_description_content_type='text/markdown',
+    long_description_content_type='text/x-rst',
     url='https://raw.githubusercontent.com/0xConnorRhodes/python-playground/main/introduction-to-python-scripting/projects/pgbackup',
     packages=find_packages('src'),
     package_dir={'': 'src'},
