@@ -13,8 +13,10 @@ def write_json_file(export_file):
         json.dump(users, file, sort_keys=True, indent=4)
 
 
-def write_csv_file():
-    pass
+def write_csv_file(export_file):
+    with open(f'{export_file}.csv', 'w') as file:
+        file.write('username,user id,home directory,shell\n')
 
-
-write_json_file('test')
+        for i in users:
+            row = f'{i["username"]},{i["user id"]},{i["home directory"]},{i["shell"]},\n'
+            file.write(row)
