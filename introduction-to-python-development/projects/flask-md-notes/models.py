@@ -8,6 +8,13 @@ class User(db.model):
     password = db.Column(db.String(200))
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
+    notes = db.relationship(
+            'Note',
+            # means notes.author() will return the User who made the note
+            backref='author', 
+            # finding a user will not automatically query for all notes. This query has to be made explicitly.
+            lazy=True 
+    )
 
 class Note(db.model):
     id = db.Column(db.Integer, primary_key=True)
@@ -15,3 +22,11 @@ class Note(db.model):
     body = db.Column(db.Text)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
+    user_id = db.Column(
+            db.Integer, 
+            # ensures that a user object with the given ID must already exist in the database 
+            # in order for the note to be associated with them.
+            db.ForeignKey('user.id'), 
+            nullable=False
+    )
+
