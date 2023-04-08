@@ -8,3 +8,10 @@ class User(db.model):
     password = db.Column(db.String(200))
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
+
+class Note(db.model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(200)) 
+    body = db.Column(db.Text)
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
