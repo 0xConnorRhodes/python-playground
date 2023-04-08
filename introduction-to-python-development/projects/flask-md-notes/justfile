@@ -5,4 +5,4 @@ serve:
 
 # ssh tunnel to dev container to allow viewing the flask webUI on your local machine
 ssh:
-	autossh -M 3000 -L 3000:localhost:3000 -N dev
+	autossh -M 3001 -L 3000:localhost:3000 -N dev
