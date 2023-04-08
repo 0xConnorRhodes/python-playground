@@ -1,3 +1,4 @@
+migrations/
 local-backup.sh
 s3-backup.sh
 src/pgbackup/core
