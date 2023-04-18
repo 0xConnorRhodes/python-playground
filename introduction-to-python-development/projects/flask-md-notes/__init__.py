@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask # import the Flask class
+from flask import Flask, render_template
 from flask_migrate import Migrate # generates a db migration script if we change the db structure defined in models.py
 
 def create_app(test_config=None):
@@ -19,6 +19,11 @@ def create_app(test_config=None):
 
     db.init_app(app)
     migrate = Migrate(app, db)
+
+    # requires render_template in imports
+    @app.route('/sign_up')
+    def sign_up():
+        return render_template('sign_up.html') # Flask will look for a template in the templates folder with this name
 
     return app
 
