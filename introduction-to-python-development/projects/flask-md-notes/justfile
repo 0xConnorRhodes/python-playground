@@ -1,5 +1,8 @@
 set dotenv-load
 
+install-deps:
+	pipenv install ; pipenv install --dev
+
 serve:
 	flask run --host=127.0.0.1 --port=3000
 
