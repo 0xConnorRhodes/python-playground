@@ -9,3 +9,6 @@ serve:
 # ssh tunnel to dev container to allow viewing the flask webUI on your local machine
 ssh:
 	autossh -M 3001 -L 3000:localhost:3000 -N dev
+
+dump:
+	pg_dump postgres://$DB_USERNAME:$DB_PASSWORD@$DB_HOST:$DB_PORT/notes > dump.sql
