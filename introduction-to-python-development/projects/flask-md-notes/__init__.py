@@ -103,16 +103,17 @@ def create_app(test_config=None):
     @require_login
     def note_create():
         if request.method == 'POST':
-            username = request.form['title']
-            password = request.form['body']
+            title = request.form['title']
+            body = request.form['body']
             error = None
-            
+
             if not title:
                 error = 'Title is required.'
 
             if error is None:
                 note = Note(author=g.user, title=title, body=body)
                 db.session.add(note)
+                db.session.commit()
                 flash(f"Successfully created note: {title}", 'success')
                 return redirect(url_for('note_index'))
 
