@@ -1,6 +1,7 @@
 import os
+import functools
 
-from flask import Flask, render_template, redirect, url_for, request, session, flash
+from flask import Flask, render_template, redirect, url_for, request, session, flash, g
 from flask_migrate import Migrate # generates a db migration script if we change the db structure defined in models.py
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -20,6 +21,22 @@ def create_app(test_config=None):
 
     db.init_app(app)
     migrate = Migrate(app, db)
+
+    def require_login(view):
+        @functools.wrap(view)
+        def wrapped_view(**kwargs):
+            if not g.user:
+                return redirect(url_for('log_in'))
+            return view(**kwargs)
+        return wrapped_view
+
+    @app.before_request
+    def load_user():
+        user_id = session.get('user_id')
+        if user_id:
+            g.user = User.query.get(user_id)
+        else:
+            g.user = None
 
     # requires render_template in imports
     @app.route('/sign_up', methods=('GET', 'POST'))
