@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from mistune import markdown
 
 db = SQLAlchemy()
 
@@ -30,3 +31,6 @@ class Note(db.Model):
             nullable=False
     )
 
+    @property
+    def body_html(self):
+        return markdown(self.body)

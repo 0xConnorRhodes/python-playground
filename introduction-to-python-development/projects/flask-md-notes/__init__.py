@@ -97,7 +97,7 @@ def create_app(test_config=None):
     @app.route('/notes')
     @require_login
     def note_index():
-        return 'Note index'
+        return render_template('note_index.html', notes=g.user.notes)
 
     @app.route('/notes/new', methods=('GET', 'POST'))
     @require_login
