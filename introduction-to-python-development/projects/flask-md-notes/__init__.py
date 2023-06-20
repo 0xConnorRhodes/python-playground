@@ -17,7 +17,7 @@ def create_app(test_config=None):
     else:
         app.config.from_mapping(test_config)
 
-    from .models import db, User
+    from .models import db, User, Note
 
     db.init_app(app)
     migrate = Migrate(app, db)
@@ -93,6 +93,32 @@ def create_app(test_config=None):
     @app.route('/')
     def index():
         return 'Index'
+
+    @app.route('/notes')
+    @require_login
+    def note_index():
+        return 'Note index'
+
+    @app.route('/notes/new', methods=('GET', 'POST'))
+    @require_login
+    def note_create():
+        if request.method == 'POST':
+            username = request.form['title']
+            password = request.form['body']
+            error = None
+            
+            if not title:
+                error = 'Title is required.'
+
+            if error is None:
+                note = Note(author=g.user, title=title, body=body)
+                db.session.add(note)
+                flash(f"Successfully created note: {title}", 'success')
+                return redirect(url_for('note_index'))
+
+            flash(error, category='error')
+
+        return render_template('note_create.html') # Flask will look for a template in the templates folder with this name
 
     return app
 
