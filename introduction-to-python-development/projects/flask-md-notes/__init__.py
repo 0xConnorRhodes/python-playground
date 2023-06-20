@@ -23,7 +23,7 @@ def create_app(test_config=None):
     migrate = Migrate(app, db)
 
     def require_login(view):
-        @functools.wrap(view)
+        @functools.wraps(view)
         def wrapped_view(**kwargs):
             if not g.user:
                 return redirect(url_for('log_in'))
