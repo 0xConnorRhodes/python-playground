@@ -96,7 +96,10 @@ def create_app(test_config=None):
 
     @app.route('/')
     def index():
-        return 'Index'
+        if not g.user:
+            return redirect(url_for('log_in'))
+        else:
+            return redirect(url_for('note_index')) # remember that url_for taxes the function name, not the route name
 
     @app.route('/notes')
     @require_login
