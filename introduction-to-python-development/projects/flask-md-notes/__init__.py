@@ -150,5 +150,14 @@ def create_app(test_config=None):
 
         return render_template('note_update.html', note=note)
 
+    @app.route('/notes/<note_id>/delete', methods=('GET', 'DELETE'))
+    @require_login
+    def note_delete(note_id):
+        note = Note.query.filter_by(user_id=g.user.id, id=note_id).first_or_404()
+        db.session.delete(note)
+        db.session.commit()
+        flash(f"Successfully deleted note: '{note.title}'", 'success')
+        return redirect(url_for('note_index'))
+
     return app
 
