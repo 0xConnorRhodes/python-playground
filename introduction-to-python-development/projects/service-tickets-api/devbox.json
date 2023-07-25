@@ -4,7 +4,9 @@
     "fish",
     "virtualenv",
     "bat",
-    "just"
+    "just",
+    "postgresql",
+    "python310Packages.psycopg2"
   ],
   "shell": {
     "init_hook": null
