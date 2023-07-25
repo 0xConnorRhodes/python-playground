@@ -13,4 +13,7 @@ def create_app(test_config=None):
     else:
         app.config.from_mapping(test_config)
 
+    from .models import db
+    db.init_app(app)
+
     return app
