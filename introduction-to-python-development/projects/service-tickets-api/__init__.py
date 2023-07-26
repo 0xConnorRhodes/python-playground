@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, redirect, render_template, url_for
 
 def create_app(test_config=None):
     app = Flask(__name__)
@@ -15,5 +15,17 @@ def create_app(test_config=None):
 
     from .models import db
     db.init_app(app)
+
+    @app.route('/')
+    def index():
+        return redirect(url_for('tickets'))
+
+    @app.route('/tickets')
+    def tickets():
+        return render_template('tickets_index.html')
+
+    @app.route('/tickets/<int:ticket_id>')
+    def tickets_show(ticket_id):
+        return render_template('tickets_show.html')
 
     return app
