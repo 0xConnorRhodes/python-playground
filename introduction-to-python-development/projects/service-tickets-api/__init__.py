@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, abort, redirect, render_template, url_for
+from flask import Flask, abort, redirect, render_template, url_for, jsonify
 
 def create_app(test_config=None):
     app = Flask(__name__)
@@ -33,8 +33,21 @@ def create_app(test_config=None):
     def tickets_show(ticket_id):
         try:
             ticket = Ticket.query.filter_by(id=ticket_id).one()
+            return render_template('tickets_show.html')
         except sqlalchemy.orm.exc.NoResultFound:
             abort(404)
-        return render_template('tickets_show.html')
+
+    @app.route('/api/tickets')
+    def api_tickets():
+        tickets = Ticket.query.all()
+        return jsonify(tickets)
+
+    @app.route('/api/tickets/<int:ticket_id>')
+    def api_tickets_show(ticket_id):
+        try:
+            ticket = Ticket.query.filter_by(id=ticket_id).one()
+            return jsonify('tickets_show.html')
+        except sqlalchemy.orm.exc.NoResultFound:
+            return jsonify({'error': 'Ticket not found'}), 404
 
     return app
