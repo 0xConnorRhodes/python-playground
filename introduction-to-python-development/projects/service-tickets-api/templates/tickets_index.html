@@ -14,17 +14,20 @@
   </thead>
   <tbody>
   <!-- EXAMPLE ROW, substitue the real information from the tickets in the database -->
+  {% for ticket in tickets %}
+  {% for ticket in tickets %}
   <tr>
-    <th>TICKET_ID</th>
-    <td>TICKET_NAME</td>
-    <td>TICKET_STATUS</td>
+    <th>{{ticket.id}}</th>
+    <td>{{ticket.name}}</td>
+    <td>{{ticket.status_string()}}</td>
     <td>
-      <a href="TICKET_URL">TICKET_URL</a>
+      <a href="{{ticket.url}}">{{ticket.url}}</a>
     </td>
     <td>
-      <a href="TICKET_URL">Details</a>
+	    <a href="{{url_for('tickets_show', ticket_id=ticket.id}}">Details</a>
     </td>
   </tr>
+  {% endfor %}
   </tbody>
 </table>
 {% endblock %}
