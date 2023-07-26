@@ -17,3 +17,11 @@ class Ticket(db.Model):
 
     def status_string(self):
         return self.statuses_dict[self.status]
+
+    def to_json(self):
+        return {
+                'id': self.id,
+                'name': self.name,
+                'status': self.status_string(),
+                'url': self.url
+                }
