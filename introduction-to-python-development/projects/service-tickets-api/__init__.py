@@ -46,7 +46,7 @@ def create_app(test_config=None):
     def api_tickets_show(ticket_id):
         try:
             ticket = Ticket.query.filter_by(id=ticket_id).one()
-            return jsonify('tickets_show.html')
+            return jsonify(ticket.to_json())
         except sqlalchemy.orm.exc.NoResultFound:
             return jsonify({'error': 'Ticket not found'}), 404
 
