@@ -6,3 +6,14 @@ for n in range(0, len(student_heights)):
 
 
 #Write your code below this row 👇
+
+total_height = 0
+num_students = 0
+
+for height in student_heights:
+  num_students += 1
+  total_height += height
+
+average_height = round(total_height / num_students)
+
+print(f"The average height is: {average_height}.")
