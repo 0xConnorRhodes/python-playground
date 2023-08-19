@@ -7,3 +7,9 @@ print(student_scores)
 
 #Write your code below this row 👇
 
+comparison = 0
+for i in student_scores:
+  if i > comparison:
+    comparison = i
+
+print(f"The highest score in the class is: {comparison}")
