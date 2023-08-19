@@ -9,9 +9,6 @@ nr_letters= int(input("How many letters would you like in your password?\n"))
 nr_symbols = int(input(f"How many symbols would you like?\n"))
 nr_numbers = int(input(f"How many numbers would you like?\n"))
 
-# Eazy Level - Order not randomised:
-# e.g. 4 letter, 2 symbol, 2 number = JduE&!91
-
 pw_letters = []
 for i in range(0, nr_letters):
     choice = letters[r.randint(0, len(letters)-1)]
@@ -27,18 +24,43 @@ for i in range(0, nr_symbols):
     choice = symbols[r.randint(0, len(symbols)-1)]
     pw_symbols.append(choice)
 
-combined_string = ''
-for i in pw_letters:
-    combined_string += i
+# Eazy Level - Order not randomised:
+# e.g. 4 letter, 2 symbol, 2 number = JduE&!91
 
-for i in pw_numbers:
-    combined_string += i
-
-for i in pw_symbols:
-    combined_string += i
-
-print(f"Here is your password: {combined_string}")
+#combined_string = ''
+#for i in pw_letters:
+#    combined_string += i
+#
+#for i in pw_numbers:
+#    combined_string += i
+#
+#for i in pw_symbols:
+#    combined_string += i
+#
+#print(f"Here is your password: {combined_string}")
 
 
 # Hard Level - Order of characters randomised:
 # e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
+
+combined_list = []
+for i in pw_numbers:
+    combined_list.append(i)
+
+for i in pw_letters:
+    combined_list.append(i)
+
+for i in pw_symbols:
+    combined_list.append(i)
+
+random_list = []
+for i in range(0, len(combined_list)):
+    choice = r.randint(0, len(combined_list)-1)
+    random_list.append(combined_list[choice])
+    del(combined_list[choice])
+
+combined_string = ''
+for i in random_list:
+    combined_string += i
+
+print(f"Here is your password: {combined_string}")
