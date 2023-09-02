@@ -25,7 +25,7 @@ assert sorted_by_name == [
 # `<NAME> is <AGE> years old.` where the `<NAME>` and `<AGE>` values are from
 # the dictionaries.
 
-name_declarations = None
+name_declarations = list(map(lambda d: f"{d['name']} is {d['age']} years old", sorted_by_name))
 
 assert name_declarations == [
     "Ariana Richards is 40 years old",
