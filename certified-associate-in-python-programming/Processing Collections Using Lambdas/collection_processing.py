@@ -10,7 +10,7 @@ people = [
     {"name": "Victor Wong", "age": 74},
 ]
 
-sorted_by_name = None
+sorted_by_name = sorted(people, key=lambda d: d['name'].lower())
 
 assert sorted_by_name == [
     {"name": "Ariana Richards", "age": 40},
