@@ -1,3 +1,6 @@
+from random import shuffle as list_shuffle
+
+
 def reverse(str_value):
     index = 0
     reversed_string = ''
@@ -7,5 +10,7 @@ def reverse(str_value):
     return reversed_string
 
 
-def shuffle():
-    pass
+def shuffle(str_value):
+    as_list = list(str_value)
+    list_shuffle(as_list)
+    return ''.join(as_list)
