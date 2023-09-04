@@ -1,4 +1,5 @@
 # 1) Import the built-in `math` module
+import math
 
 # 2) Import the `reverse` and `shuffle` from the custom `strhelpers` module (Needs to be created)
 
