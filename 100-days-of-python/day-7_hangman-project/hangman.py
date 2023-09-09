@@ -12,6 +12,13 @@ print(f'Answer is: {chosen_word}.')
 # the chosen_word was "apple", display should be ["_", "_", "_", "_", "_"]
 # with 5 "_" representing each letter to guess.
 
+display = ''
+for letter in chosen_word:
+    display += '_'
+
+display = list(display)
+print(display)
+
 guess = input('Guess a letter: ').lower()
 
 # TODO 2: - Loop through each position in the chosen_word
