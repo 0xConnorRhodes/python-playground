@@ -12,11 +12,10 @@ print(f'Answer is: {chosen_word}.')
 # the chosen_word was "apple", display should be ["_", "_", "_", "_", "_"]
 # with 5 "_" representing each letter to guess.
 
-display = ''
-for letter in chosen_word:
+display = []
+for _ in chosen_word:
     display += '_'
 
-display = list(display)
 print(display)
 
 guess = input('Guess a letter: ').lower()
@@ -27,11 +26,11 @@ guess = input('Guess a letter: ').lower()
 # e.g. If the user guessed "p" and the chosen word was "apple",
 # then display should be ["_", "p", "p", "_", "_"].
 
-for letter in chosen_word:
-    if guess in letter:
-        print('Right')
-    else:
-        print('Wrong')
+for position in range(len(chosen_word)):
+    if guess == chosen_word[position]:
+        display[position] = guess
+
 
 # TODO 3: - Print 'display' and you should see the guessed
 # letter in the correct position and every other letter replace with "_".
+print(display)
